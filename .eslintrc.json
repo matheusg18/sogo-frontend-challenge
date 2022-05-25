@@ -18,5 +18,7 @@
       "typescript": {}
     }
   },
-  "rules": {}
+  "rules": {
+    "import/extensions": ["error", "ignorePackages", { "ts": "never", "tsx": "never" }]
+  }
 }
