@@ -1,9 +1,10 @@
 import React, { FocusEvent } from 'react';
 import { useFormik } from 'formik';
 import * as utils from '../../utils';
+import { IRegisterPersonFormValues } from '../../interfaces';
 
 function RegisterPerson() {
-  const initialValues = {
+  const initialValues: IRegisterPersonFormValues = {
     firstName: '',
     lastName: '',
     cpf: '',
@@ -17,7 +18,10 @@ function RegisterPerson() {
     complement: '',
   };
 
-  const formik = useFormik({ initialValues, onSubmit: console.log });
+  const formik = useFormik<IRegisterPersonFormValues>({
+    initialValues,
+    onSubmit: console.log,
+  });
 
   const handleCepBlur = async (event: FocusEvent<HTMLInputElement>) => {
     formik.handleBlur(event);
