@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { FocusEvent } from 'react';
 import { useFormik } from 'formik';
+import * as utils from '../../utils';
 
 function RegisterPerson() {
   const initialValues = {
@@ -17,6 +18,18 @@ function RegisterPerson() {
   };
 
   const formik = useFormik({ initialValues, onSubmit: console.log });
+
+  const handleCepBlur = async (event: FocusEvent<HTMLInputElement>) => {
+    formik.handleBlur(event);
+    if (formik.errors.cep) return;
+
+    const { state, city, district, street } = await utils.fetchInfoFromCep(event.target.value);
+
+    formik.setFieldValue('state', state);
+    formik.setFieldValue('city', city);
+    formik.setFieldValue('district', district);
+    formik.setFieldValue('street', street);
+  };
 
   return (
     <div>
@@ -58,6 +71,7 @@ function RegisterPerson() {
           placeholder="CEP"
           onChange={formik.handleChange}
           value={formik.values.cep}
+          onBlur={handleCepBlur}
         />
         <input
           type="text"
