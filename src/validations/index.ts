@@ -4,6 +4,7 @@ import cpfSchema from './cpfSchema';
 import firstNameSchema from './firstNameSchema';
 import lastNameSchema from './lastNameSchema';
 import numberSchema from './numberSchema';
+import dateSchema from './dateSchema';
 
 const registerPersonValidation = yup.object({
   firstName: firstNameSchema,
@@ -11,6 +12,7 @@ const registerPersonValidation = yup.object({
   cep: cepSchema,
   cpf: cpfSchema,
   number: numberSchema,
+  birthDate: dateSchema,
 });
 
 export { registerPersonValidation };
