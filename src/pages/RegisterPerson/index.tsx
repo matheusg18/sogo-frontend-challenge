@@ -4,6 +4,7 @@ import * as utils from '../../utils';
 import { IRegisterPersonFormValues } from '../../interfaces';
 import TextInput from '../../components/TextInput';
 import { registerPersonValidation } from '../../validations';
+import Button from '../../components/Button';
 
 function RegisterPerson() {
   const initialValues: IRegisterPersonFormValues = {
@@ -59,7 +60,7 @@ function RegisterPerson() {
         <TextInput name="district" placeholder="Bairro" formik={formik} readOnly />
         <TextInput name="complement" placeholder="Complemento" formik={formik} />
 
-        <button type="submit">Cadastrar</button>
+        <Button type="submit">Cadastrar</Button>
       </form>
     </div>
   );
