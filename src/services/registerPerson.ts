@@ -1,4 +1,5 @@
 import { v4 as uuid } from 'uuid';
+import moment from 'moment';
 import { IPerson, IRegisterPersonFormValues } from '../interfaces';
 import { getSavedPersons } from './getSavedPersons';
 
@@ -7,7 +8,7 @@ const buildNewPerson = (data: IRegisterPersonFormValues): IPerson => ({
   cpf: data.cpf,
   firstName: data.firstName,
   lastName: data.lastName,
-  birthDate: new Date(data.birthDate),
+  birthDate: moment(data.birthDate, 'DD/MM/YYYY').toDate(),
   address: {
     cep: data.cep,
     state: data.state,
