@@ -2,6 +2,8 @@ import React, { FocusEvent } from 'react';
 import { useFormik } from 'formik';
 import * as utils from '../../utils';
 import { IRegisterPersonFormValues } from '../../interfaces';
+import TextInput from '../../components/TextInput';
+import { registerPersonValidation } from '../../validations';
 
 function RegisterPerson() {
   const initialValues: IRegisterPersonFormValues = {
@@ -21,6 +23,7 @@ function RegisterPerson() {
   const formik = useFormik<IRegisterPersonFormValues>({
     initialValues,
     onSubmit: console.log,
+    validationSchema: registerPersonValidation,
   });
 
   const handleCepBlur = async (event: FocusEvent<HTMLInputElement>) => {
@@ -40,89 +43,22 @@ function RegisterPerson() {
       <h1>Cadastro de pessoa prestadora de serviço</h1>
       <form onSubmit={formik.handleSubmit}>
         <h2>Dados pessoais</h2>
-        <input
-          type="text"
-          name="firstName"
-          placeholder="Nome"
-          onChange={formik.handleChange}
-          value={formik.values.firstName}
-        />
-        <input
-          type="text"
-          name="lastName"
-          placeholder="Sobrenome"
-          onChange={formik.handleChange}
-          value={formik.values.lastName}
-        />
-        <input
-          type="text"
-          name="cpf"
-          placeholder="CPF"
-          onChange={formik.handleChange}
-          value={formik.values.cpf}
-        />
-        <input
-          type="text"
-          name="birthDate"
-          placeholder="Data de nascimento"
-          onChange={formik.handleChange}
-          value={formik.values.birthDate}
-        />
+
+        <TextInput name="firstName" placeholder="Nome" formik={formik} />
+        <TextInput name="lastName" placeholder="Sobrenome" formik={formik} />
+        <TextInput name="cpf" placeholder="CPF" formik={formik} />
+        <TextInput name="birthDate" placeholder="Data de nascimento" formik={formik} />
+
         <h2>Endereço</h2>
-        <input
-          type="text"
-          name="cep"
-          placeholder="CEP"
-          onChange={formik.handleChange}
-          value={formik.values.cep}
-          onBlur={handleCepBlur}
-        />
-        <input
-          type="text"
-          name="street"
-          placeholder="Rua"
-          onChange={formik.handleChange}
-          value={formik.values.street}
-          readOnly
-        />
-        <input
-          type="text"
-          name="number"
-          placeholder="número"
-          onChange={formik.handleChange}
-          value={formik.values.number}
-        />
-        <input
-          type="text"
-          name="state"
-          placeholder="Estado"
-          onChange={formik.handleChange}
-          value={formik.values.state}
-          readOnly
-        />
-        <input
-          type="text"
-          name="city"
-          placeholder="Cidade"
-          onChange={formik.handleChange}
-          value={formik.values.city}
-          readOnly
-        />
-        <input
-          type="text"
-          name="district"
-          placeholder="Bairro"
-          onChange={formik.handleChange}
-          value={formik.values.district}
-          readOnly
-        />
-        <input
-          type="text"
-          name="complement"
-          placeholder="Complemento"
-          onChange={formik.handleChange}
-          value={formik.values.complement}
-        />
+
+        <TextInput name="cep" placeholder="CEP" handleBlur={handleCepBlur} formik={formik} />
+        <TextInput name="street" placeholder="Rua" formik={formik} readOnly />
+        <TextInput name="number" placeholder="Número" formik={formik} />
+        <TextInput name="state" placeholder="Estado" formik={formik} readOnly />
+        <TextInput name="city" placeholder="Cidade" formik={formik} readOnly />
+        <TextInput name="district" placeholder="Bairro" formik={formik} readOnly />
+        <TextInput name="complement" placeholder="Complemento" formik={formik} />
+
         <button type="submit">Cadastrar</button>
       </form>
     </div>
