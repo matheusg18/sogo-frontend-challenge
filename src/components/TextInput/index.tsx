@@ -22,7 +22,9 @@ function TextInput({ name, placeholder, handleBlur, formik, readOnly = false }: 
         value={formik.values[name]}
         readOnly={readOnly}
       />
-      {formik.errors[name] && formik.touched[name] && <p>{formik.errors[name]}</p>}
+      {formik.errors[name] && formik.touched[name] && (
+        <p data-testid="input-error-message">{formik.errors[name]}</p>
+      )}
     </div>
   );
 }
