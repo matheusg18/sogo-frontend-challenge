@@ -1,0 +1,5 @@
+@function space($factor) {
+  $base-space: 4px;
+
+  @return $factor * $base-space;
+}
