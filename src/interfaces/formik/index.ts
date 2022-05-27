@@ -11,3 +11,9 @@ export interface IRegisterPersonFormValues {
   district: string;
   complement: string;
 }
+
+export interface IRegisterContractFormValues {
+  registrationDate: string;
+  dueDate: string;
+  personCpf: string;
+}
