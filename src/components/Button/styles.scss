@@ -1,0 +1,23 @@
+@use '../../styles/utils' as *;
+
+$button-font-color: #fff;
+$button-background-color: #000027;
+
+.button-component {
+  font-size: 14px;
+  border: none;
+  outline: none;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background-color ease 200ms;
+
+  &--primary {
+    background-color: $button-background-color;
+    color: $button-font-color;
+    padding: space(2) space(12);
+
+    &:active {
+      background-color: lighten($button-background-color, 4%);
+    }
+  }
+}
