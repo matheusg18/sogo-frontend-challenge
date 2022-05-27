@@ -1,0 +1,46 @@
+@use '../../styles/utils' as *;
+
+$input-border-color: #9ca3af;
+$input-font-color: #374151;
+$input-placeholder-color: #9ca3af;
+$input-focus-color: #60a5fa;
+$error-color: #dc2626;
+
+.input-container {
+  margin-bottom: space(6);
+  position: relative;
+  min-width: 300px;
+
+  &__input {
+    font-family: inherit;
+    font-size: 14px;
+    color: $input-font-color;
+    padding: space(1) space(2);
+    border: 1px solid $input-border-color;
+    border-radius: 5px;
+    outline: none;
+    width: 100%;
+
+    &--error {
+      border-color: $error-color;
+    }
+
+    &:focus:not(:read-only) {
+      border-color: $input-focus-color;
+      box-shadow: 0 0 4px $input-focus-color;
+    }
+
+    &::placeholder {
+      color: $input-placeholder-color;
+    }
+  }
+
+  &__error-message {
+    position: absolute;
+    bottom: 0;
+    left: space(1);
+    transform: translateY(120%);
+    font-size: 14px;
+    color: $error-color;
+  }
+}
