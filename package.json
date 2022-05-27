@@ -24,6 +24,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --testMatch=**/test.{ts,tsx}",
+    "test:coverage": "npm test -- --collectCoverage",
     "eject": "react-scripts eject",
     "lint": "eslint --ext .tsx,.ts src/"
   },
