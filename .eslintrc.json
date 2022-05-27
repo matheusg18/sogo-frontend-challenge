@@ -24,6 +24,7 @@
     "import/prefer-default-export": "off",
     "object-curly-newline": ["error", { "consistent": true }],
     "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
+    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "react/require-default-props": "off"
   }
 }
