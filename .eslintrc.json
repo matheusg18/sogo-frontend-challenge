@@ -26,6 +26,7 @@
     "object-curly-newline": ["error", { "consistent": true }],
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
-    "react/require-default-props": "off"
+    "react/require-default-props": "off",
+    "react/button-has-type": "off"
   }
 }
