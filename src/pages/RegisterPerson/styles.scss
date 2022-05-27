@@ -1,0 +1,34 @@
+@use '../../styles/utils' as *;
+
+$h1-font-color: #1f2937;
+$h2-font-color: #374151;
+
+.register-person-page {
+  width: fit-content;
+  margin: space(30) auto;
+
+  &__h1 {
+    color: $h1-font-color;
+    margin-bottom: space(15);
+  }
+
+  &__h2 {
+    color: $h2-font-color;
+    margin-bottom: space(7.5);
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__personal-data-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  & .button-component {
+    margin-top: space(8);
+    align-self: center;
+  }
+}

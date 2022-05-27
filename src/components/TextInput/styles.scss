@@ -7,8 +7,9 @@ $input-focus-color: #60a5fa;
 $error-color: #dc2626;
 
 .input-container {
-  margin: space(8);
+  margin-bottom: space(6);
   position: relative;
+  min-width: 300px;
 
   &__input {
     font-family: inherit;
@@ -18,7 +19,7 @@ $error-color: #dc2626;
     border: 1px solid $input-border-color;
     border-radius: 5px;
     outline: none;
-    min-width: 300px;
+    width: 100%;
 
     &--error {
       border-color: $error-color;
