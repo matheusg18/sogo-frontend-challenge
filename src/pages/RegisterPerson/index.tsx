@@ -1,30 +1,39 @@
 import React, { FocusEvent } from 'react';
-import { useFormik } from 'formik';
+import { FormikHelpers, useFormik } from 'formik';
 import * as utils from '../../utils';
+import * as services from '../../services';
 import { IRegisterPersonFormValues } from '../../interfaces';
 import TextInput from '../../components/TextInput';
 import { registerPersonValidation } from '../../validations';
 import Button from '../../components/Button';
 import './styles.scss';
 
+const initialValues: IRegisterPersonFormValues = {
+  firstName: '',
+  lastName: '',
+  cpf: '',
+  birthDate: '',
+  cep: '',
+  street: '',
+  number: '',
+  state: '',
+  city: '',
+  district: '',
+  complement: '',
+};
+
 function RegisterPerson() {
-  const initialValues: IRegisterPersonFormValues = {
-    firstName: '',
-    lastName: '',
-    cpf: '',
-    birthDate: '',
-    cep: '',
-    street: '',
-    number: '',
-    state: '',
-    city: '',
-    district: '',
-    complement: '',
+  const handleSubmit = (
+    values: IRegisterPersonFormValues,
+    formikHelpers: FormikHelpers<IRegisterPersonFormValues>,
+  ) => {
+    services.registerPerson(values);
+    formikHelpers.resetForm();
   };
 
   const formik = useFormik<IRegisterPersonFormValues>({
     initialValues,
-    onSubmit: console.log,
+    onSubmit: handleSubmit,
     validationSchema: registerPersonValidation,
   });
 
