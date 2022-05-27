@@ -26,9 +26,21 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --testMatch=**/test.{ts,tsx}",
-    "test:coverage": "npm test -- --collectCoverage",
+    "test:coverage": "npm test -- --watchAll=false --collectCoverage",
     "eject": "react-scripts eject",
     "lint": "eslint --ext .tsx,.ts src/"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!<rootDir>/node_modules/",
+      "!<rootDir>/src/index.tsx",
+      "!<rootDir>/src/react-app-env.d.ts",
+      "!<rootDir>/src/**/*.scss"
+    ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/src/interfaces"
+    ]
   },
   "eslintConfig": {
     "extends": [
