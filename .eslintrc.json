@@ -22,6 +22,8 @@
     "import/extensions": ["error", "ignorePackages", { "ts": "never", "tsx": "never" }],
     "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
     "import/prefer-default-export": "off",
-    "object-curly-newline": ["error", { "consistent": true }]
+    "object-curly-newline": ["error", { "consistent": true }],
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
   }
 }
