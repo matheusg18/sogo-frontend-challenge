@@ -1,17 +1,18 @@
 import React, { FocusEvent } from 'react';
 import { FormikProps } from 'formik';
-import { IRegisterPersonFormValues } from '../../interfaces';
+import { IRegisterContractFormValues, IRegisterPersonFormValues } from '../../interfaces';
 import './styles.scss';
 
 type PropTypes = {
-  name: keyof IRegisterPersonFormValues;
+  name: string;
   placeholder: string;
   handleBlur?: (event: FocusEvent<HTMLInputElement>) => void;
-  formik: FormikProps<IRegisterPersonFormValues>;
+  formik: FormikProps<IRegisterPersonFormValues> | FormikProps<IRegisterContractFormValues>;
   readOnly?: boolean;
 };
 
 function TextInput({ name, placeholder, handleBlur, formik, readOnly = false }: PropTypes) {
+  // @ts-ignore
   const canShowError = formik.errors[name] && formik.touched[name];
 
   return (
@@ -23,11 +24,13 @@ function TextInput({ name, placeholder, handleBlur, formik, readOnly = false }: 
         placeholder={placeholder}
         onBlur={handleBlur || formik.handleBlur}
         onChange={formik.handleChange}
+        // @ts-ignore
         value={formik.values[name]}
         readOnly={readOnly}
       />
       {canShowError && (
         <p className="input-container__error-message" data-testid="input-error-message">
+          {/* @ts-ignore */}
           {formik.errors[name]}
         </p>
       )}

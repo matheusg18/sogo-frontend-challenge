@@ -15,4 +15,10 @@ const registerPersonValidation = yup.object({
   birthDate: dateSchema,
 });
 
-export { registerPersonValidation };
+const registerContractValidation = yup.object({
+  registrationDate: dateSchema,
+  dueDate: dateSchema,
+  personCpf: cpfSchema,
+});
+
+export { registerPersonValidation, registerContractValidation };
