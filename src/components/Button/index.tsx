@@ -3,7 +3,7 @@ import './styles.scss';
 
 type PropTypes = {
   type?: 'button' | 'submit' | 'reset';
-  variant?: 'primary' | 'filter';
+  variant?: 'primary' | 'filter' | 'small-filter';
   handleClick?: (event?: MouseEvent<HTMLButtonElement>) => void;
   children: string;
 };

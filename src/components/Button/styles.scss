@@ -1,7 +1,9 @@
 @use '../../styles/utils' as *;
 
-$button-font-color: #fff;
-$button-background-color: #000027;
+$button-primary-font-color: #fff;
+$button-primary-background-color: #000027;
+$button-filter-background-color: #eab308;
+$button-filter-font-color: #000;
 
 .button-component {
   font-size: 14px;
@@ -12,12 +14,23 @@ $button-background-color: #000027;
   transition: background-color ease 200ms;
 
   &--primary {
-    background-color: $button-background-color;
-    color: $button-font-color;
+    background-color: $button-primary-background-color;
+    color: $button-primary-font-color;
     padding: space(2) space(12);
 
     &:active {
-      background-color: lighten($button-background-color, 4%);
+      background-color: lighten($button-primary-background-color, 4%);
+    }
+  }
+
+  &--small-filter {
+    background-color: $button-filter-background-color;
+    color: $button-filter-font-color;
+    padding: space(1) space(1.5);
+    border-radius: 5px;
+
+    &:active {
+      background-color: lighten($button-filter-background-color, 4%);
     }
   }
 }
