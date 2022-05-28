@@ -14,3 +14,10 @@ export interface IPerson {
     complement: string;
   };
 }
+
+export interface IContract {
+  contractNumber: string;
+  registrationDate: Date;
+  dueDate: Date;
+  personCpf: string;
+}
