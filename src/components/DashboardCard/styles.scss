@@ -31,5 +31,14 @@ $font-color: #fff;
   &__display-data {
     font-size: 32px;
     font-weight: 700;
+    position: relative;
+  }
+
+  &__unity {
+    font-size: 16px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translateY(75%);
   }
 }

@@ -8,9 +8,11 @@ import './styles.scss';
 
 function Dashboard() {
   const [contracts, setContracts] = useState(0);
+  const [averageContractTime, setAverageContractTime] = useState({ value: '0', unity: 'dias' });
 
   useEffect(() => {
     setContracts(services.getSavedContracts().length);
+    setAverageContractTime(services.getAverageContractTime());
   }, []);
 
   return (
@@ -40,7 +42,8 @@ function Dashboard() {
         <DashboardCard
           header="Tempo médio de prestação de serviços"
           icon={<BsClockHistory size="52px" />}
-          displayData="144 dias"
+          displayData={averageContractTime.value}
+          unity={averageContractTime.unity}
         />
       </div>
     </main>
