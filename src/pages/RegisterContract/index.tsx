@@ -1,7 +1,8 @@
 import React from 'react';
-import { useFormik } from 'formik';
+import { FormikHelpers, useFormik } from 'formik';
 import { IRegisterContractFormValues } from '../../interfaces';
 import { registerContractValidation } from '../../validations';
+import * as services from '../../services';
 import TextInput from '../../components/TextInput';
 import Button from '../../components/Button';
 import './styles.scss';
@@ -13,9 +14,17 @@ const initialValues: IRegisterContractFormValues = {
 };
 
 function RegisterContract() {
+  const handleSubmit = (
+    values: IRegisterContractFormValues,
+    formikHelpers: FormikHelpers<IRegisterContractFormValues>,
+  ) => {
+    services.registerContract(values);
+    formikHelpers.resetForm();
+  };
+
   const formik = useFormik<IRegisterContractFormValues>({
     initialValues,
-    onSubmit: console.log,
+    onSubmit: handleSubmit,
     validationSchema: registerContractValidation,
   });
 
