@@ -1,6 +1,8 @@
 @use '../../styles/utils' as *;
 
 $admin-wrapper-backgroud-color: #d1d5db;
+$name-font-color: #1f2937;
+$email-font-color: #374151;
 
 .dashboard-page {
   &__admin-wrapper {
@@ -9,11 +11,13 @@ $admin-wrapper-backgroud-color: #d1d5db;
     // background-color: $admin-wrapper-backgroud-color;
 
     &__name {
+      color: $name-font-color;
       font-size: 20px;
       font-weight: 700;
     }
 
     &__email {
+      color: $email-font-color;
       font-size: 14px;
     }
 
