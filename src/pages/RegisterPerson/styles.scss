@@ -5,11 +5,13 @@ $h2-font-color: #374151;
 
 .register-person-page {
   width: fit-content;
+  max-width: 80%;
   margin: space(30) auto;
 
   &__h1 {
     color: $h1-font-color;
     margin-bottom: space(15);
+    text-align: center;
   }
 
   &__h2 {
