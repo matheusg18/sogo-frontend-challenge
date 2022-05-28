@@ -1,0 +1,35 @@
+@use '../../styles/utils' as *;
+
+$brand-dark-color: #003e6a;
+$brand-ligth-color: #008cc1;
+$font-color: #fff;
+
+.dashboard-card {
+  background: linear-gradient(113.96deg, $brand-ligth-color 0%, $brand-dark-color 100%);
+  padding: space(7.5);
+  width: 300px;
+  height: 200px;
+  border-radius: 20px;
+  color: $font-color;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    font-size: 20px;
+  }
+
+  &__spacer {
+    flex-grow: 1;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__display-data {
+    font-size: 32px;
+    font-weight: 700;
+  }
+}
