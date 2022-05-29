@@ -9,13 +9,14 @@ function Navbar() {
   const [showNavbar, setShowNavbar] = useState(false);
 
   useEffect(() => {
-    if (window.innerWidth < 768) setCanShowMobileButton(true);
-  }, []);
+    const handleShowMobileMenuButton = () => {
+      if (window.innerWidth < 768) setCanShowMobileButton(true);
+      else setCanShowMobileButton(false);
+    };
 
-  window.addEventListener('resize', () => {
-    if (window.innerWidth < 768) setCanShowMobileButton(true);
-    else setCanShowMobileButton(false);
-  });
+    handleShowMobileMenuButton();
+    window.addEventListener('resize', handleShowMobileMenuButton);
+  }, []);
 
   return (
     <div className={`navbar ${canShowMobileButton && !showNavbar ? 'navbar--hidden' : ''}`}>
