@@ -1,10 +1,10 @@
-import { v4 as uuid } from 'uuid';
 import moment from 'moment';
 import { IContract, IRegisterContractFormValues } from '../interfaces';
+import { genContractNumber } from '../utils';
 import { getSavedContracts } from './getSavedContracts';
 
 const buildNewContract = (data: IRegisterContractFormValues): IContract => ({
-  contractNumber: uuid(),
+  contractNumber: genContractNumber(),
   registrationDate: moment(data.registrationDate, 'DD/MM/YYYY').toDate(),
   dueDate: moment(data.dueDate, 'DD/MM/YYYY').toDate(),
   personCpf: data.personCpf,
