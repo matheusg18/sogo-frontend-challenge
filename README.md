@@ -1,46 +1,60 @@
-# Getting Started with Create React App
+# Sistema controle de contratos
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Contexto
 
-## Available Scripts
+Esta aplicação foi desenvolvida como teste técnico do processo seletivo para a vaga de desenvolvedor frontend na empresa SOGO.
 
-In the project directory, you can run:
+Trata-se de um sistema de gerenciamento de contratos onde é possível cadastrar pessoas prestadoras de serviço, cadastrar contratos, visualizar uma lista de contratos a vencer (com filtros) e visualizar algumas estatísticas no dashboard.
 
-### `npm start`
+[**Link para o projeto**](https://sogo-frontend-challenge.vercel.app/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Rodando a aplicação localmente
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Clone o projeto e acesse o repositório do projeto
 
-### `npm test`
+```bash
+git clone git@github.com:matheusg18/sogo-frontend-challenge.git && cd sogo-frontend-challenge
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Instale as dependências
 
-### `npm run build`
+```bash
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Rode a aplicação
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+5. **(Bônus)**: Com a aplicação rodando, acesse a rota `/seed` para alimentar o `localstorage` com dados de teste.
 
-### `npm run eject`
+## Rodando os testes
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Execute o comando `npm run test:coverage` para rodar os testes e visualizar a cobertura de código.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Conhecimentos aplicados
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Stacks e bibliotecas principais
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- React
+- Typescript
+- SASS
 
-## Learn More
+### Paradigmas
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Mobile first
+- Design responsivo
+- CI/CD
+- Programação funcional
+- BEM (CSS)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Outras bibliotecas
+
+- React Router
+- Formik
+- Yup
+- Moment.js
+- uuid
+- RTL
