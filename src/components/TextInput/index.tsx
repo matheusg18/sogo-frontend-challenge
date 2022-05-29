@@ -16,7 +16,7 @@ function TextInput({ name, placeholder, handleBlur, formik, readOnly = false }: 
   const canShowError = formik.errors[name] && formik.touched[name];
 
   return (
-    <div className="input-container" data-inputName={name}>
+    <div className="input-container" data-input-name={name}>
       <input
         type="text"
         className={`input-container__input ${canShowError ? 'input-container__input--error' : ''}`}

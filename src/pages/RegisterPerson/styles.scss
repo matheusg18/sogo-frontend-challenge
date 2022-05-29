@@ -68,31 +68,31 @@ $h2-font-color: #374151;
         / 1fr 1fr 1fr 1fr;
       column-gap: space(10);
 
-      [data-inputName='cep'] {
+      [data-input-name='cep'] {
         grid-area: cep;
       }
 
-      [data-inputName='street'] {
+      [data-input-name='street'] {
         grid-area: street;
       }
 
-      [data-inputName='number'] {
+      [data-input-name='number'] {
         grid-area: number;
       }
 
-      [data-inputName='state'] {
+      [data-input-name='state'] {
         grid-area: state;
       }
 
-      [data-inputName='city'] {
+      [data-input-name='city'] {
         grid-area: city;
       }
 
-      [data-inputName='district'] {
+      [data-input-name='district'] {
         grid-area: district;
       }
 
-      [data-inputName='complement'] {
+      [data-input-name='complement'] {
         grid-area: complement;
       }
     }
