@@ -38,11 +38,64 @@ $h2-font-color: #374151;
   &__form {
     display: flex;
     flex-direction: column;
+    max-width: 800px;
   }
 
   &__personal-data-container {
     display: flex;
     flex-direction: column;
+
+    @media only screen and (min-width: $laptop-media-query) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      column-gap: space(10);
+      margin-bottom: space(10);
+    }
+  }
+
+  &__address-data-container {
+    display: flex;
+    flex-direction: column;
+
+    @media only screen and (min-width: $laptop-media-query) {
+      display: grid;
+      grid:
+        'cep cep cep cep' 1fr
+        'street street street number' 1fr
+        'state state city city' 1fr
+        'district district complement complement' 1fr
+        / 1fr 1fr 1fr 1fr;
+      column-gap: space(10);
+
+      [data-inputName='cep'] {
+        grid-area: cep;
+      }
+
+      [data-inputName='street'] {
+        grid-area: street;
+      }
+
+      [data-inputName='number'] {
+        grid-area: number;
+      }
+
+      [data-inputName='state'] {
+        grid-area: state;
+      }
+
+      [data-inputName='city'] {
+        grid-area: city;
+      }
+
+      [data-inputName='district'] {
+        grid-area: district;
+      }
+
+      [data-inputName='complement'] {
+        grid-area: complement;
+      }
+    }
   }
 
   & .button-component {
