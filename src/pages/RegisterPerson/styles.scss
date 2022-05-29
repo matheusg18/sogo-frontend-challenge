@@ -5,11 +5,13 @@ $h2-font-color: #374151;
 
 .register-person-page {
   width: fit-content;
-  margin: space(30) auto;
+  max-width: calc(80% - 150px);
+  margin: space(20) auto;
 
   &__h1 {
     color: $h1-font-color;
     margin-bottom: space(15);
+    text-align: center;
   }
 
   &__h2 {
@@ -28,7 +30,7 @@ $h2-font-color: #374151;
   }
 
   & .button-component {
-    margin-top: space(8);
+    margin: space(8) 0;
     align-self: center;
   }
 }
