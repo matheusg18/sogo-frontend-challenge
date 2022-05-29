@@ -1,0 +1,42 @@
+@use '../../styles/utils' as *;
+
+$thead-background-color: #000027;
+$thead-font-color: #fff;
+
+.contracts-to-expire {
+  max-width: 80%;
+  margin: 0 auto;
+
+  &__filter-wrapper {
+    margin: space(20) 0 space(10);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  &__table {
+    border-collapse: collapse;
+    border: 1px solid black;
+    width: 100%;
+  }
+
+  &__thead {
+    background-color: $thead-background-color;
+    color: $thead-font-color;
+  }
+
+  &__th {
+    padding: space(1) space(1);
+    border: 1px solid black;
+    text-align: center;
+  }
+
+  &__td {
+    padding: space(1);
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    text-align: center;
+  }
+}
