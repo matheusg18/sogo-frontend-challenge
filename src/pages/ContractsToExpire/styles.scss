@@ -41,6 +41,14 @@ $no-data-font-color: #1f2937;
     padding: space(1) space(1);
     border: 1px solid black;
     text-align: center;
+
+    @media only screen and (min-width: $laptop-media-query) {
+      padding: space(1) space(4);
+    }
+
+    @media only screen and (min-width: $laptop-large-media-query) {
+      padding: space(1) space(8);
+    }
   }
 
   &__td {
