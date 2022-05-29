@@ -1,0 +1,15 @@
+@use './styles/variables' as *;
+
+.app {
+  display: flex;
+  height: 100%;
+
+  &::before {
+    @media only screen and (min-width: $tablet-media-query) {
+      // navbar size
+      content: '';
+      width: 150px;
+      height: 100%;
+    }
+  }
+}

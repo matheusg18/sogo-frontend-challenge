@@ -30,10 +30,6 @@ function Dashboard() {
 
   return (
     <main className="dashboard-page">
-      <div className="dashboard-page__admin-wrapper">
-        <p className="dashboard-page__admin-wrapper__name">Matheus Santos</p>
-        <p className="dashboard-page__admin-wrapper__email">matheus@gmail.com</p>
-      </div>
       <div className="dashboard-page__cards-wrapper">
         <DashboardCard
           header="Contratos cadastrados"
