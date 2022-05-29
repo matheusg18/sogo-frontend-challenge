@@ -13,7 +13,7 @@ const getAverageContractTime = (): { value: string, unity: string } => {
   const sumOfDays = savedContracts.reduce((acc, { registrationDate, dueDate }) => (
     acc + moment(dueDate).diff(moment(registrationDate), 'days')
   ), 0);
-  const averageInDays = sumOfDays / savedContracts.length;
+  const averageInDays = (sumOfDays / savedContracts.length) || 0;
 
   return chooseOutput(averageInDays);
 };
