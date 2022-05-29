@@ -30,4 +30,4 @@ const filterContracts = (filter: filterType): IContract[] => {
   });
 };
 
-export { filterContracts };
+export { filterContracts, type filterType };
