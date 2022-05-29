@@ -5,13 +5,16 @@ $button-primary-background-color: #000027;
 $button-filter-background-color: #eab308;
 $button-filter-font-color: #000;
 
+%button-active-transition {
+  transition: background-color 150ms;
+}
+
 .button-component {
   font-size: 14px;
   border: none;
   outline: none;
   border-radius: 7px;
   cursor: pointer;
-  transition: background-color ease 200ms;
 
   &--primary {
     background-color: $button-primary-background-color;
@@ -19,7 +22,8 @@ $button-filter-font-color: #000;
     padding: space(2) space(12);
 
     &:active {
-      background-color: lighten($button-primary-background-color, 4%);
+      background-color: lighten($button-primary-background-color, 6%);
+      @extend %button-active-transition;
     }
   }
 
@@ -31,6 +35,17 @@ $button-filter-font-color: #000;
 
     &:active {
       background-color: lighten($button-filter-background-color, 4%);
+      @extend %button-active-transition;
+    }
+  }
+
+  &--selected {
+    background-color: $button-primary-background-color;
+    color: $button-primary-font-color;
+
+    &:active {
+      background-color: lighten($button-primary-background-color, 4%);
+      @extend %button-active-transition;
     }
   }
 }
