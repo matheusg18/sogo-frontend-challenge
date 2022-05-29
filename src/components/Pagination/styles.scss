@@ -1,0 +1,30 @@
+@use '../../styles/utils' as *;
+
+$pagination-item-background-color: #d9d9d9;
+$pagination-item-active-background-color: #008cc1;
+$pagination-item-active-font-color: #fff;
+
+.pagination {
+  list-style: none;
+  display: flex;
+  gap: space(1);
+  width: fit-content;
+
+  &__item {
+    cursor: pointer;
+    background-color: $pagination-item-background-color;
+    border-radius: 5px;
+
+    &--active {
+      color: $pagination-item-active-font-color;
+      background-color: $pagination-item-active-background-color;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    padding: space(0.5) space(1.5);
+  }
+}
