@@ -1,12 +1,12 @@
 import React from 'react';
 import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import * as uuid from 'uuid';
 import moment from 'moment';
 import RegisterContract from './index';
 import * as services from '../../services';
+import { genContractNumber } from '../../utils/genContractNumber';
 
-jest.mock('uuid');
+jest.mock('../../utils/genContractNumber');
 
 describe('RegisterContract - unit test', () => {
   afterAll(() => {
@@ -14,7 +14,7 @@ describe('RegisterContract - unit test', () => {
   });
 
   it('should register a contract', async () => {
-    (uuid.v4 as jest.Mock).mockReturnValue('fakeuuid');
+    (genContractNumber as jest.Mock).mockReturnValue('0123456789');
 
     render(<RegisterContract />);
 
@@ -35,7 +35,7 @@ describe('RegisterContract - unit test', () => {
 
     expect(services.getSavedContracts()).toStrictEqual([
       {
-        contractNumber: 'fakeuuid',
+        contractNumber: '0123456789',
         registrationDate: moment('20/02/2020', 'DD/MM/YYYY').toDate(),
         dueDate: moment('20/02/2023', 'DD/MM/YYYY').toDate(),
         personCpf: '14516861020',

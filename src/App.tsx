@@ -5,6 +5,8 @@ import Dashboard from './pages/Dashboard';
 import RegisterContract from './pages/RegisterContract';
 import RegisterPerson from './pages/RegisterPerson';
 import './App.styles.scss';
+import ContractsToExpire from './pages/ContractsToExpire';
+import Seed from './components/Seed';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
           <Route path="person" element={<RegisterPerson />} />
           <Route path="contract" element={<RegisterContract />} />
         </Route>
+        <Route path="/contracts/to-expire" element={<ContractsToExpire />} />
+        <Route path="/seed" element={<Seed />} />
       </Routes>
     </div>
   );

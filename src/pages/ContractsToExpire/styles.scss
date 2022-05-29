@@ -1,0 +1,67 @@
+@use '../../styles/utils' as *;
+@use '../../styles/variables' as *;
+
+$thead-background-color: #000027;
+$thead-font-color: #fff;
+$no-data-font-color: #1f2937;
+
+.contracts-to-expire {
+  max-width: 80%;
+  margin: 0 auto;
+  position: relative;
+
+  &__filter-wrapper {
+    margin: space(20) auto space(10);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-width: 300px;
+    max-width: 400px;
+  }
+
+  &__table-wrapper {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+  }
+
+  &__table {
+    border-collapse: collapse;
+    border: 1px solid black;
+    width: 100%;
+    min-width: 600px;
+  }
+
+  &__thead {
+    background-color: $thead-background-color;
+    color: $thead-font-color;
+  }
+
+  &__th {
+    padding: space(1) space(1);
+    border: 1px solid black;
+    text-align: center;
+  }
+
+  &__td {
+    padding: space(1);
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    text-align: center;
+  }
+
+  &__no-data {
+    color: $no-data-font-color;
+    font-size: 20px;
+    text-align: center;
+
+    @media only screen and (min-width: $tablet-media-query) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__pagination {
+    margin: space(15) auto;
+    width: fit-content;
+  }
+}

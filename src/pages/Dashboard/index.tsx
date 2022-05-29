@@ -6,13 +6,11 @@ import DashboardCard from '../../components/DashboardCard';
 import Button from '../../components/Button';
 import './styles.scss';
 
-type filterType = 'today' | 'next week' | 'next month' | 'next 2 weeks' | 'future';
-
 function Dashboard() {
   const [contracts, setContracts] = useState(0);
   const [averageContractTime, setAverageContractTime] = useState({ value: '0', unity: 'dias' });
   const [contractsToExpire, setContractsToExpire] = useState(0);
-  const [expireInterval, setExpireInterval] = useState<filterType>('future');
+  const [expireInterval, setExpireInterval] = useState<services.filterType>('future');
 
   useEffect(() => {
     setContracts(services.getSavedContracts().length);
@@ -24,7 +22,7 @@ function Dashboard() {
     setContractsToExpire(services.filterContracts(expireInterval).length);
   }, [expireInterval]);
 
-  const handleFilterButtonClick = (filter: filterType): void => {
+  const handleFilterButtonClick = (filter: services.filterType): void => {
     setExpireInterval((prev) => (prev === filter ? 'future' : filter));
   };
 
