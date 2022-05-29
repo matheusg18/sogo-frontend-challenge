@@ -1,0 +1,68 @@
+@use '../../styles/utils' as *;
+@use '../../styles/variables' as *;
+
+$navbar-background-color: #01243d;
+$navbar-link-background-color: #000027;
+$navbar-link-active-background-color: #008cc1;
+$navbar-link-font-color: #fff;
+
+.navbar {
+  max-width: 150px;
+  width: 150px;
+  background-color: $navbar-background-color;
+  height: 100%;
+  position: fixed;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  padding: space(25) 0 space(10);
+  align-items: center;
+  transition: transform ease 200ms;
+
+  &--hidden {
+    transform: translatex(-100%);
+  }
+
+  &__menu {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(60px, 20px);
+    background-color: transparent;
+    border: none;
+    outline: none;
+  }
+
+  &__ul {
+    list-style: none;
+  }
+
+  &__li {
+    width: 100%;
+    height: 70px;
+  }
+
+  &__link {
+    width: 100%;
+    height: 100%;
+    padding: space(5);
+    background-color: $navbar-link-background-color;
+    color: $navbar-link-font-color;
+    font-size: 1rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+
+    &--active {
+      background-color: $navbar-link-active-background-color;
+    }
+  }
+
+  &__spacer {
+    flex-grow: 1;
+  }
+
+  &__img {
+    width: 90%;
+  }
+}
