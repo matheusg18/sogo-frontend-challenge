@@ -5,6 +5,7 @@ import Dashboard from './pages/Dashboard';
 import RegisterContract from './pages/RegisterContract';
 import RegisterPerson from './pages/RegisterPerson';
 import './App.styles.scss';
+import ContractsToExpire from './pages/ContractsToExpire';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="person" element={<RegisterPerson />} />
           <Route path="contract" element={<RegisterContract />} />
         </Route>
+        <Route path="contracts/to-expire" element={<ContractsToExpire />} />
       </Routes>
     </div>
   );
