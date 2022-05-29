@@ -45,7 +45,7 @@ $h2-font-color: #374151;
       grid-template-rows: 1fr 1fr;
       column-gap: space(10);
 
-      [data-inputName='personCpf'] {
+      [data-input-name='personCpf'] {
         grid-column: 1 / 3;
       }
     }
