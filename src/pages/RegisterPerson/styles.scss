@@ -1,22 +1,38 @@
 @use '../../styles/utils' as *;
+@use '../../styles/variables' as *;
 
 $h1-font-color: #1f2937;
 $h2-font-color: #374151;
 
 .register-person-page {
   width: fit-content;
-  max-width: calc(80% - 150px);
+  max-width: 80%;
   margin: space(20) auto;
 
   &__h1 {
     color: $h1-font-color;
     margin-bottom: space(15);
     text-align: center;
+
+    font-size: 20px;
+
+    @media only screen and (min-width: $tablet-media-query) {
+      font-size: 1.75rem;
+    }
+
+    @media only screen and (min-width: $laptop-media-query) {
+      font-size: 2rem;
+    }
   }
 
   &__h2 {
     color: $h2-font-color;
     margin-bottom: space(7.5);
+    font-size: 16px;
+
+    @media only screen and (min-width: $tablet-media-query) {
+      font-size: 1.5rem;
+    }
   }
 
   &__form {
