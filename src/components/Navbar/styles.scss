@@ -19,6 +19,10 @@ $navbar-link-font-color: #fff;
   align-items: center;
   transition: transform ease 200ms;
 
+  @media only screen and (min-height: 800px) {
+    padding-top: space(40);
+  }
+
   &--hidden {
     transform: translatex(-100%);
   }
