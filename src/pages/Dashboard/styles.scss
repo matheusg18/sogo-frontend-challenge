@@ -1,50 +1,45 @@
 @use '../../styles/utils' as *;
+@use '../../styles/variables' as *;
 
-$admin-wrapper-backgroud-color: #d1d5db;
+$admin-wrapper-backgroud-color: #f1f1f1;
 $name-font-color: #1f2937;
 $email-font-color: #374151;
 
 .dashboard-page {
   max-width: 80%;
   margin: 0 auto;
-  padding: space(15) 0;
+  padding: space(30) 0;
   height: fit-content;
 
-  // &__admin-wrapper {
-  //   // position: relative;
-  //   // padding: space(10);
-  //   // background-color: $admin-wrapper-backgroud-color;
+  @media only screen and (min-width: $laptop-large-media-query) {
+    width: 80%;
+  }
 
-  //   // &__name {
-  //   //   color: $name-font-color;
-  //   //   font-size: 20px;
-  //   //   font-weight: 700;
-  //   // }
-
-  //   // &__email {
-  //   //   color: $email-font-color;
-  //   //   font-size: 14px;
-  //   }
-
-  //   // &::after {
-  //   //   content: '';
-
-  //   //   position: absolute;
-  //   //   left: 0;
-  //   //   bottom: -20px;
-  //   //   height: 50%;
-  //   //   right: 0;
-
-  //   //   background: $admin-wrapper-backgroud-color;
-  //   //   z-index: -1;
-  //   // }
-  // }
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    background-color: $admin-wrapper-backgroud-color;
+    width: 100%;
+    height: space(40);
+  }
 
   &__cards-wrapper {
     width: fit-content;
     display: flex;
     flex-direction: column;
     gap: space(10);
+
+    @media only screen and (min-width: $laptop-large-media-query) {
+      flex-direction: row;
+      gap: 0;
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      justify-content: space-between;
+    }
   }
 
   &__filter-wrapper {
