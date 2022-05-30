@@ -39,7 +39,7 @@ function RegisterPerson() {
 
   const handleCepBlur = async (event: FocusEvent<HTMLInputElement>) => {
     formik.handleBlur(event);
-    if (formik.errors.cep) return;
+    if (formik.errors.cep || formik.values.cep === '') return;
 
     const { state, city, district, street } = await utils.fetchInfoFromCep(event.target.value);
 
