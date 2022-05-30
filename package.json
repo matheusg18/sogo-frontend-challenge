@@ -40,7 +40,8 @@
       "!<rootDir>/src/**/*.scss"
     ],
     "coveragePathIgnorePatterns": [
-      "<rootDir>/src/interfaces"
+      "<rootDir>/src/interfaces",
+      "<rootDir>/src/components/Seed"
     ]
   },
   "eslintConfig": {
