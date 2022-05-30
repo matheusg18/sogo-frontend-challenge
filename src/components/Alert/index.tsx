@@ -1,36 +1,17 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { MdError, MdWarning, MdCheck } from 'react-icons/md';
+import { AlertTemplateProps } from 'react-alert';
 import './styles.scss';
 
-type PropTypes = {
-  type: 'success' | 'error' | 'warning';
-  children: string;
-};
-
-function Alert({ type, children }: PropTypes) {
-  let icon: ReactNode;
-
-  switch (type) {
-    case 'error':
-      icon = <MdError size="24px" />;
-      break;
-
-    case 'warning':
-      icon = <MdWarning size="24px" />;
-      break;
-
-    case 'success':
-      icon = <MdCheck size="24px" />;
-      break;
-
-    default:
-      break;
-  }
-
+function Alert({ style, options, message }: AlertTemplateProps) {
   return (
-    <div className={`alert alert--${type}`}>
-      <div className="alert__icon">{icon}</div>
-      {children}
+    <div style={style} className={`alert alert--${options.type}`}>
+      <div className="alert__icon">
+        {options.type === 'info' && <MdWarning size="24px" />}
+        {options.type === 'success' && <MdCheck size="24px" />}
+        {options.type === 'error' && <MdError size="24px" />}
+      </div>
+      {message}
     </div>
   );
 }

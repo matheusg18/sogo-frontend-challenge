@@ -1,6 +1,12 @@
 @use '../../sass/utils' as *;
+@use '../../sass/variables' as *;
 
 $error-background-color: #fca5a5;
+$error-icon-color: #dc2626;
+$success-background-color: #86efac;
+$success-icon-color: #16a34a;
+$warning-background-color: #fde047;
+$warning-icon-color: #a16207;
 
 .alert {
   display: flex;
@@ -8,15 +14,35 @@ $error-background-color: #fca5a5;
   gap: space(2.5);
   padding: space(3);
   border-radius: 10px;
-  position: fixed;
-  top: 90vh;
-  left: 50vw;
+  min-width: 50vw;
+
+  @media only screen and (min-width: $tablet-media-query) {
+    margin-left: 150px !important;
+  }
 
   &--error {
     background-color: $error-background-color;
 
     .alert__icon {
-      color: #dc2626;
+      color: $error-icon-color;
+      height: 24px;
+    }
+  }
+
+  &--success {
+    background-color: $success-background-color;
+
+    .alert__icon {
+      color: $success-icon-color;
+      height: 24px;
+    }
+  }
+
+  &--info {
+    background-color: $warning-background-color;
+
+    .alert__icon {
+      color: $warning-icon-color;
       height: 24px;
     }
   }
