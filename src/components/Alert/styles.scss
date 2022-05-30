@@ -1,0 +1,23 @@
+@use '../../sass/utils' as *;
+
+$error-background-color: #fca5a5;
+
+.alert {
+  display: flex;
+  align-items: center;
+  gap: space(2.5);
+  padding: space(3);
+  border-radius: 10px;
+  position: fixed;
+  top: 90vh;
+  left: 50vw;
+
+  &--error {
+    background-color: $error-background-color;
+
+    .alert__icon {
+      color: #dc2626;
+      height: 24px;
+    }
+  }
+}
