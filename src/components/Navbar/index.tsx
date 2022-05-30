@@ -26,7 +26,11 @@ function Navbar() {
           type="button"
           onClick={() => setShowNavbar((prev) => !prev)}
         >
-          {showNavbar ? <IoMdClose size="32px" /> : <GiHamburgerMenu size="28px" />}
+          {showNavbar ? (
+            <IoMdClose data-testid="mobile-menu-close" size="32px" />
+          ) : (
+            <GiHamburgerMenu data-testid="mobile-menu-hamburg" size="28px" />
+          )}
         </button>
       )}
       <nav>
