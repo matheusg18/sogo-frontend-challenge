@@ -1,5 +1,8 @@
+/* eslint-disable no-use-before-define */
 import React from 'react';
 import { FormikHelpers, useFormik } from 'formik';
+import { useAlert } from 'react-alert';
+import { isValid as isCpfValid } from '@fnando/cpf';
 import { IRegisterContractFormValues } from '../../interfaces';
 import { registerContractValidation } from '../../validations';
 import * as services from '../../services';
@@ -14,12 +17,34 @@ const initialValues: IRegisterContractFormValues = {
 };
 
 function RegisterContract() {
+  const alert = useAlert();
+
   const handleSubmit = (
     values: IRegisterContractFormValues,
     formikHelpers: FormikHelpers<IRegisterContractFormValues>,
   ) => {
-    services.registerContract(values);
-    formikHelpers.resetForm();
+    if (!isCpfValid(formik.values.personCpf, true)) {
+      alert.error('CPF inválido!');
+      formik.setFieldError('personCpf', 'CPF inválido');
+      return;
+    }
+
+    try {
+      services.registerContract(values);
+      formikHelpers.resetForm();
+    } catch (error) {
+      if ((error as Error).message === 'due date must be after registration date') {
+        alert.error('Data de vencimento deve ser menor do que a data de registro!', {
+          timeout: 5000,
+        });
+        formik.setFieldError('dueDate', 'Data inválida');
+      }
+
+      if ((error as Error).message === 'cpf not found') {
+        alert.error('CPF não cadastrado!');
+        formik.setFieldError('personCpf', 'CPF não cadastrado');
+      }
+    }
   };
 
   const formik = useFormik<IRegisterContractFormValues>({
