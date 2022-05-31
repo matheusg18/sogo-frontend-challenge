@@ -1,10 +1,11 @@
 import React from 'react';
-import { act, render, screen } from '@testing-library/react';
+import { act, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import * as uuid from 'uuid';
 import moment from 'moment';
 import RegisterPerson from './index';
 import * as services from '../../services';
+import { renderWithReactAlert } from '../../testUtils';
 
 jest.mock('uuid');
 
@@ -25,7 +26,7 @@ describe('RegisterPerson - unit test', () => {
       }),
     });
 
-    render(<RegisterPerson />);
+    renderWithReactAlert(<RegisterPerson />);
 
     const firstNameInput = screen.getByPlaceholderText('Nome');
     const lastNameInput = screen.getByPlaceholderText('Sobrenome');
