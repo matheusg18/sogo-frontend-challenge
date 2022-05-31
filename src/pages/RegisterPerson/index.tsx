@@ -41,6 +41,7 @@ function RegisterPerson() {
     try {
       services.registerPerson(values);
       formikHelpers.resetForm();
+      alert.success('Pessoa cadastrada com sucesso!');
     } catch (error) {
       if (error instanceof Error && error.message === 'person already registered') {
         alert.error('CPF já cadastrado!');
