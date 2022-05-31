@@ -32,6 +32,7 @@ function RegisterContract() {
     try {
       services.registerContract(values);
       formikHelpers.resetForm();
+      alert.success('Contrato cadastrada com sucesso!');
     } catch (error) {
       if ((error as Error).message === 'due date must be after registration date') {
         alert.error('Data de vencimento deve ser menor do que a data de registro!', {
