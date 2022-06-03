@@ -1,5 +1,8 @@
+/* eslint-disable no-use-before-define */
 import React, { FocusEvent } from 'react';
 import { FormikHelpers, useFormik } from 'formik';
+import { useAlert } from 'react-alert';
+import { isValid as isCpfValid } from '@fnando/cpf';
 import * as utils from '../../utils';
 import * as services from '../../services';
 import { IRegisterPersonFormValues } from '../../interfaces';
@@ -23,12 +26,28 @@ const initialValues: IRegisterPersonFormValues = {
 };
 
 function RegisterPerson() {
+  const alert = useAlert();
+
   const handleSubmit = (
     values: IRegisterPersonFormValues,
     formikHelpers: FormikHelpers<IRegisterPersonFormValues>,
   ) => {
-    services.registerPerson(values);
-    formikHelpers.resetForm();
+    if (!isCpfValid(formik.values.cpf, true)) {
+      alert.error('CPF inválido!');
+      formik.setFieldError('cpf', 'CPF inválido');
+      return;
+    }
+
+    try {
+      services.registerPerson(values);
+      formikHelpers.resetForm();
+      alert.success('Pessoa cadastrada com sucesso!');
+    } catch (error) {
+      if (error instanceof Error && error.message === 'person already registered') {
+        alert.error('CPF já cadastrado!');
+        formik.setFieldError('cpf', 'CPF já cadastrado!');
+      }
+    }
   };
 
   const formik = useFormik<IRegisterPersonFormValues>({
